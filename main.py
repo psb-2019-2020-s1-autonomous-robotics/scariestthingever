@@ -37,6 +37,11 @@ while True:
         degree=degree+45
         motor.run_target(500,degree)
 
+<<<<<<< HEAD
 print("Hello")
 
     
+=======
+
+    
+>>>>>>> 340c2c62785efb632ba61d5ad6d3567acbd21e96
