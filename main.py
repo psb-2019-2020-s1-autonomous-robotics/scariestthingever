@@ -1,4 +1,12 @@
 #!/usr/bin/env pybricks-micropython
+
+#Spooky Candy Robot
+#By Jasmine Li and Maddy Malloy
+
+'''
+Want to get candy? Too bad, you'll have to 'git' past the monster in the screen first! This spooky robot scares you when you get too close, and dispenses candy if you're brave enough to push the button.
+'''
+
 #Importing libraries
 from pybricks import ev3brick as brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
@@ -22,6 +30,7 @@ hand_motor.run_target(500,90)
 #Infinite loop
 while True:
     distance = spider_eye.distance(False)
+    brick.light(Color.RED)
     #If something approaches sensor
     if distance <= 2000:
         #Arm moves
@@ -37,8 +46,17 @@ while True:
         nose_motor.run_target(500,0)
         wait(1500)
     
-    #If button pressed
-    if button.pressed():
-        #Dispenser rotates, drops candy
-        degree = degree + 45
-        dispenser_motor.run_target(500,degree)
+    brick.light(Color.GREEN)
+
+    #Checks for button press for 500 ms
+    i = 0
+    while i<50:
+        if button.pressed():
+            #Dispenser rotates, drops candy
+            degree = degree + 45
+            dispenser_motor.run_target(500,degree)
+            i = 50
+        else:
+            wait(10)
+        i += 1
+    brick.light(Color.RED)
