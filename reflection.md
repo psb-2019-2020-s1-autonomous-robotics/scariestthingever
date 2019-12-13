@@ -14,4 +14,4 @@
 - 3D print dispenser parts to make more symmetrical
 - Make hand reset itself
 - Make button easier to press
-- Amplify sound 
+- Amplify sound clip of laughter
